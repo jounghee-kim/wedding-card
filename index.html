@@ -277,12 +277,12 @@
                 <div class="eighth-content">
                     <div class="eighth-content-detail">
                         <!-- <p class="title">마음 전하실 곳</p> -->
-                        <p class="letter">직접 만나지는 못해도
-                            <br />축하해주고 싶은 마음을 받아
-                            <br />행복하게 살겠습니다.
+                        <p class="letter">예쁜 예감이 들었다.
+                            <br />우리는 언제나 손을 잡고 있게 될 것이다.
                         </p>
+                        <p class="poem">- 이이체, 연인 -</p>
                         
-                        <lottie-player class='center_lottie' src="https://assets6.lottiefiles.com/packages/lf20_s6vm71il.json"  mode="bounce" background="transparent"  speed="0.5"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                        <lottie-player class='center_lottie' src="https://assets1.lottiefiles.com/packages/lf20_owc0pksu.json"  mode="bounce" background="transparent"  speed="1"  style="position:absolute; top:300px; left:25px; width: 300px; height: 300px;"  loop autoplay></lottie-player>
                     
                         <!-- <div style="position: absolute; width: 100%; bottom: 80px; text-align: center;">
                             <button class="custom-button" onclick="openGroomAccount();">신랑 혼주 계좌번호</button><br/><br/>
@@ -309,11 +309,17 @@
                 </div>
             </li> -->
         </ul>
+
+        <!-- snow effect -->
+        <div id="snow" count="200"></div>
     </div>
     <script src="resources/js/common.js"></script>
     <script src="resources/js/jquery.mousewheel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sakura-js@1.1.1/dist/sakura.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- snow effect -->
+    <script src="resources/js/pure-snow.js"></script>
 
 
     <script>
@@ -327,7 +333,7 @@
             // initializeFirebaseUi();
             // initializeFirebaseDB();
 
-            var sakura = new Sakura('body');
+            // var sakura = new Sakura('body');
             
         });
         $("body").waitForImages(true).done(function() {
