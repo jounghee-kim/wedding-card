@@ -321,7 +321,7 @@ function crownPlay(){
     var player = document.querySelector("#lottie-crown");
     if (on_crown){
         player.play();
-        on_party=false;
+        on_crown=false;
     }
 }
 
