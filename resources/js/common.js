@@ -337,3 +337,14 @@ function santaPlay(){
         }, 3000);
     }
 }
+
+var on_slide=true;
+function slidePlay(){
+    var player = document.querySelector("#lottie-slide");
+    if (on_slide){
+        on_slide=false;
+        setTimeout(function() {
+            player.style.opacity=0.5;
+        }, 1500);
+    }
+}
