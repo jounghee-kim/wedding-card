@@ -148,7 +148,8 @@ function prevImage() {
     var maxPage = parseInt(pageString.split("/")[1]);
     var maxLength = $('.photo-area').length
     var prevPage = (curPage - 1 == 0) ? maxLength : curPage - 1;
-    switchImage(curPage, prevPage, maxPage);
+    var loadPage = (curPage - 2 == 0) ? maxLength : curPage - 2;
+    switchImage(curPage, prevPage, maxPage, loadPage);
 }
 
 function nextImage() {
@@ -156,11 +157,19 @@ function nextImage() {
     var curPage = parseInt(pageString.split("/")[0]);
     var maxPage = parseInt(pageString.split("/")[1]);
     var nextPage = (curPage + 1 > maxPage) ? 1 : curPage + 1;
-    switchImage(curPage, nextPage, maxPage);
+    var loadPage = (curPage + 2 > maxPage) ? 1 : curPage + 2;
+    switchImage(curPage, nextPage, maxPage, loadPage);
 }
 
-function switchImage(beforePage, afterPage, maxPage) {
+function switchImage(beforePage, afterPage, maxPage, loadPage) {
     
+    // lazy loading
+    var load_attr = $(".photo-area").eq(parseInt(loadPage)-1).attr("src")
+    if (typeof load_attr === 'undefined' || load_attr === false) {
+        $(".photo-area").eq(parseInt(loadPage)-1).attr("src",$(".photo-area").eq(parseInt(loadPage)-1).attr("data-src"));
+        console.log(loadPage);
+    }
+
     $(".photo-area").eq(parseInt(beforePage)-1).removeClass('appear');
     $(".photo-area").eq(parseInt(beforePage)-1).removeClass('disappear');
     setTimeout(function(){ 
