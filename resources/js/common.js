@@ -57,6 +57,11 @@ function initializeCardSlider() {
             } else {
                 $(".arrow").fadeIn();
             }
+            $("li[aria-hidden='false']").find('lottie-player').each(function() {
+                $(this).get(0).play();
+                
+            });
+            
         }
     });
 }
