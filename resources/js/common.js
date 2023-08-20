@@ -169,16 +169,21 @@ function nextImage() {
 function switchImage(beforePage, afterPage, maxPage, loadPage) {
     
     // lazy image loading
-    var load_attr = $(".photo-area").eq(parseInt(loadPage)-1).attr("src");
+    var photo_component = $(".photo-area");
+    var load_component = photo_component.eq(parseInt(loadPage)-1);
+    var before_component = photo_component.eq(parseInt(beforePage)-1);
+    var after_component = photo_component.eq(parseInt(afterPage)-1);
+
+    var load_attr = load_component.attr('src');
     if (typeof load_attr === 'undefined' || load_attr === false) {
-        $(".photo-area").eq(parseInt(loadPage)-1).attr("src",$(".photo-area").eq(parseInt(loadPage)-1).attr("data-src"));
+        load_component.attr("src", load_component.attr("data-src"));
     }
 
-    $(".photo-area").eq(parseInt(beforePage)-1).removeClass('appear');
-    $(".photo-area").eq(parseInt(beforePage)-1).removeClass('disappear');
+    before_component.removeClass('appear');
+    before_component.addClass('disappear');
     setTimeout(function(){ 
-        $(".photo-area").eq(parseInt(afterPage)-1).removeClass('disappear');
-        $(".photo-area").eq(parseInt(afterPage)-1).addClass('appear');
+        after_component.removeClass('disappear');
+        after_component.addClass('appear');
     },51);
     $(".indicator").text(afterPage + "/" + maxPage);
 }
